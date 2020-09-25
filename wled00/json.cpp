@@ -137,7 +137,11 @@ bool deserializeState(JsonObject root)
   bool on = root["on"] | (bri > 0);
   if (!on != !bri) toggleOnOff();
 
-  int tr = root[F("transition")] | -1;
+  int lampOn = root["lampOn"] | -1;
+  if (lampOn > -1) lampOnOff(lampOn);
+
+  int tr = root[F("transition")] | -1; -1;
+
   if (tr >= 0)
   {
     transitionDelay = tr;
@@ -278,6 +282,7 @@ void serializeState(JsonObject root)
   if (errorFlag) root[F("error")] = errorFlag;
   
   root["on"] = (bri > 0);
+  root["lampOn"] = lampOn;
   root["bri"] = briLast;
   root[F("transition")] = transitionDelay/100; //in 100ms
 

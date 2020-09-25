@@ -94,6 +94,7 @@ bool serveLiveLeds(AsyncWebServerRequest* request, uint32_t wsClient = 0);
 void setValuesFromMainSeg();
 void resetTimebase();
 void toggleOnOff();
+void lampOnOff(bool value);
 void setAllLeds();
 void setLedsStandard(bool justColors = false);
 bool colorChanged();

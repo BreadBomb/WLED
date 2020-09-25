@@ -879,6 +879,7 @@ input[type=number]::-webkit-outer-spin-button {
 	<div class="tab top">
 		<div class="btnwrap">
 			<button id="buttonPower" onclick="togglePower()" class="tgl"><i class="icons">&#xe08f;</i><p class="tab-label">Power</p></button>
+			<button id="buttonPowerLamp" onclick="togglePowerLamp()" class="tgl"><i class="icons">&#xe08f;</i><p class="tab-label">Lamp</p></button>
 			<button id="buttonNl" onclick="toggleNl()"><i class="icons">&#xe2a2;</i><p class="tab-label">Timer</p></button>
 			<button id="buttonSync" onclick="toggleSync()"><i class="icons">&#xe116;</i><p class="tab-label">Sync</p></button>
 			<button id="buttonSr" onclick="toggleLiveview()"><i class="icons">&#xe410;</i><p class="tab-label">Peek</p></button>
@@ -1079,7 +1080,7 @@ input[type=number]::-webkit-outer-spin-button {
 //page js
 var loc = false, locip;
 var ps = false, noNewSegs = false;
-var isOn = false, nlA = false, isLv = false, isInfo = false, syncSend = false, syncTglRecv = true, isRgbw = false;
+var isOn = false, nlA = false, isLv = false, isInfo = false, syncSend = false, syncTglRecv = true, isRgbw = false, isLampOn = false;
 var whites = [0,0,0];
 var expanded = [false];
 var powered = [true];
@@ -1473,6 +1474,7 @@ function updateLen(s)
 function updateUI()
 {
 	d.getElementById('buttonPower').className = (isOn) ? "active":"";
+	d.getElementById('buttonPowerLamp').className = (isLampOn) ? "active":"";
 	d.getElementById('buttonNl').className = (nlA) ? "active":"";
 	d.getElementById('buttonSync').className = (syncSend) ? "active":"";
 
@@ -1589,6 +1591,7 @@ function requestJson(command, rinfo = true, verbose = true) {
 			displayRover(info, s);
 		}
 		isOn = s.on;
+		isLampOn = s.lampOn;
 		d.getElementById('sliderBri').value= s.bri;
 		nlA = s.nl.on;
 		nlDur = s.nl.dur;
@@ -1646,6 +1649,12 @@ function togglePower() {
 	var obj = {"on": isOn};
 	obj.transition = parseInt(d.getElementById('cyctt').value*10);
 	requestJson(obj);
+}
+
+function togglePowerLamp() {
+  isLampOn = !isLampOn;
+  var obj = {"lampOn": isLampOn ? 1 : 0};
+  requestJson(obj);
 }
 
 function toggleNl() {

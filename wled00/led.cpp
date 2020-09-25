@@ -33,6 +33,16 @@ void toggleOnOff()
   }
 }
 
+void lampOnOff(bool value) {
+  if (value == 1) {
+    lampOn = true;
+    digitalWrite(5, 1);
+  } else {
+    lampOn = false;
+    digitalWrite(5, 0);
+  }
+}
+
 
 void setAllLeds() {
   if (!realtimeMode || !arlsForceMaxBri)

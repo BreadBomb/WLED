@@ -135,6 +135,8 @@ void WLED::setup()
   if (ledCount > MAX_LEDS || ledCount == 0)
     ledCount = 30;
 
+pinMode(5, OUTPUT);
+
 #ifdef ESP8266
   #if LEDPIN == 3
     if (ledCount > MAX_LEDS_DMA)

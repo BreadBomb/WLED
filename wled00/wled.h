@@ -347,6 +347,9 @@ WLED_GLOBAL unsigned long nightlightStartTime;
 WLED_GLOBAL byte briNlT _INIT(0);                     // current nightlight brightness
 WLED_GLOBAL byte colNlT[] _INIT_N(({ 0, 0, 0, 0 }));        // current nightlight color
 
+// lamp
+WLED_GLOBAL bool lampOn _INIT(true);
+
 // brightness
 WLED_GLOBAL unsigned long lastOnTime _INIT(0);
 WLED_GLOBAL bool offMode _INIT(!turnOnAtBoot);
