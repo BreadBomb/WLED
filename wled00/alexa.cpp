@@ -11,7 +11,6 @@
 
 #ifndef WLED_DISABLE_ALEXA
 void onAlexaChange(EspalexaDevice* dev);
-
 void alexaInit()
 {
   if (alexaEnabled && WLED_CONNECTED)

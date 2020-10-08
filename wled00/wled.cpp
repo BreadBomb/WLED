@@ -251,6 +251,11 @@ void WLED::beginStrip()
 #endif
 #endif
 
+#ifdef LAMP_PIN
+  pinMode(LAMP_PIN, OUTPUT);
+  digitalWrite(LAMP_PIN, 1);
+#endif
+
   // disable button if it is "pressed" unintentionally
 #if defined(BTNPIN) || defined(TOUCHPIN)
   if (isButtonPressed())

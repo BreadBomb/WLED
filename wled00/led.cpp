@@ -36,10 +36,10 @@ void toggleOnOff()
 void lampOnOff(bool value) {
   if (value == 1) {
     lampOn = true;
-    digitalWrite(5, 1);
+    digitalWrite(LAMP_PIN, 0);
   } else {
     lampOn = false;
-    digitalWrite(5, 0);
+    digitalWrite(LAMP_PIN, 1);
   }
 }
 

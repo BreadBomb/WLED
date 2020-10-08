@@ -10,6 +10,8 @@
 #define DEFAULT_AP_PASS     "wled1234"
 #define DEFAULT_OTA_PASS    "wledota"
 
+#define LAMP_PIN D1
+
 //increase if you need more
 #define WLED_MAX_USERMODS 4
 

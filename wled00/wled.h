@@ -226,7 +226,7 @@ WLED_GLOBAL bool notifyMacro  _INIT(false);                       // send notifi
 WLED_GLOBAL bool notifyHue    _INIT(true);                        // send notification if Hue light changes
 WLED_GLOBAL bool notifyTwice  _INIT(false);                       // notifications use UDP: enable if devices don't sync reliably
 
-WLED_GLOBAL bool alexaEnabled _INIT(false);                       // enable device discovery by Amazon Echo
+WLED_GLOBAL bool alexaEnabled _INIT(true);                       // enable device discovery by Amazon Echo
 WLED_GLOBAL char alexaInvocationName[33] _INIT("Light");          // speech control name of device. Choose something voice-to-text can understand
 
 WLED_GLOBAL char blynkApiKey[36] _INIT("");                       // Auth token for Blynk server. If empty, no connection will be made
@@ -348,7 +348,7 @@ WLED_GLOBAL byte briNlT _INIT(0);                     // current nightlight brig
 WLED_GLOBAL byte colNlT[] _INIT_N(({ 0, 0, 0, 0 }));        // current nightlight color
 
 // lamp
-WLED_GLOBAL bool lampOn _INIT(true);
+WLED_GLOBAL bool lampOn _INIT(false);
 
 // brightness
 WLED_GLOBAL unsigned long lastOnTime _INIT(0);
